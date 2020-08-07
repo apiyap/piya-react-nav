@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import Nav from './nav-top'
+import Nav from './nav-top'
 import './nav-top.css'
 
 
@@ -36,36 +36,21 @@ class TopNavBar extends React.Component {
 
         return (
             <>
-            {/* <Nav.Top >
+            <Nav.Top >
                 <Nav.Menu href="#home">Home</Nav.Menu>
                 <Nav.Menu href="#news">News</Nav.Menu>
                 <Nav.Menu href="#contact">Contact</Nav.Menu>
-                <Nav.Menu href="#about">About</Nav.Menu>
-                <Nav.Dropdown.Menu>
-
-                </Nav.Dropdown.Menu>
+                <Nav.Menu href="#about1">About1</Nav.Menu>
+                <Nav.Dropdown>
+                        <Nav.Menu href="#Link1" css="">Link 1</Nav.Menu>
+                        <Nav.Menu href="#Link2" css="">Link 2</Nav.Menu>
+                        <Nav.Menu href="#Link3" css="">Link 3</Nav.Menu>
+                        <Nav.Divider/>
+                        <Nav.Menu href="#Link4" css="">Link 4</Nav.Menu>
+                </Nav.Dropdown> 
+                <Nav.Menu href="#about2">About2</Nav.Menu>
                 <Nav.Toggle/>
-            </Nav.Top> */}
-
-
-            <div className={"topnav" + css} >
-            <a href="#home" className="active">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <div className="dropdown">
-                <button className="dropbtn">Dropdown 
-                <i className="fa fa-caret-down"></i>
-                </button>
-                <div className="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div> 
-            <a href="#about">About</a>
-            <a href="#"  className="icon" onClick={this.handleClick}>&#9776;</a>
-            </div>
-
+            </Nav.Top>
 
             </>
         );

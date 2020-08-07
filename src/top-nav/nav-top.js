@@ -1,3 +1,4 @@
+
 import React , {Children , isValidElement, cloneElement} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars,faCaretDown } from '@fortawesome/free-solid-svg-icons'
@@ -49,7 +50,6 @@ class NavTop extends React.Component {
                 switch(child.type.name)
                 {
                     case "NavDropdown":
-                        //console.log(child);
                         return cloneElement(child, { 
                             css: (action===child.props.href? " active" : "" ),
                             callback: this.childHandleClick  
@@ -124,7 +124,6 @@ class NavMenu extends React.Component {
     }
     render() {
         const {href, css} = this.props;
-
         return(
             <a href={href} className={"top-nav-item" + css} onClick={this.handleClick}>
                 {this.props.children}
@@ -138,6 +137,7 @@ class NavDropdown extends React.Component {
         super(props);
         this.state = {
             type : 'top-nav-item',
+            action : '',
           };
         this.handleClick = this.handleClick.bind(this);
         
@@ -150,19 +150,17 @@ class NavDropdown extends React.Component {
         }
     }
     render() {
-        const {href, css, name} = this.props;
+        const { css} = this.props;
 
         return(
-        <div className={"top-nav-item" + css} onClick={this.handleClick}>
-            <a href="#" className="dropbtn" >Dropdown 
-                <FontAwesomeIcon icon={faCaretDown} />
-            </a>
-            <div className="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div> 
+            <div className={"dropdown" + css} onClick={this.handleClick}>
+                <button className="dropbtn">Dropdown 
+                    <FontAwesomeIcon icon={faCaretDown} />
+                </button>
+                <div className="dropdown-content">
+                   {this.props.children}
+                </div>
+            </div>    
         );
     }
 }
@@ -176,12 +174,14 @@ const Nav = {
     // Collapse : NavCollapse,
     // Bar : Navbar,
     // Link : NavLink,
-
-    Dropdown :{
-      Menu: NavDropdown,
-     // Item: NavDropdownItem,
-      Divider : ()=>{ return (<div className="dropdown-divider" role="separator"></div>); }
-    }
+    Dropdown : NavDropdown,
+    Divider : ()=>{ return (<div className="dropdown-divider" role="separator"></div>); }
+    
+    // Dropdown :{
+    //   Menu: NavDropdown,
+    //  // Item: NavDropdownItem,
+    //  
+    // }
   }
    
   
