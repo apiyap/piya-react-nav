@@ -1,0 +1,54 @@
+.sidebar {
+    position: fixed;
+    top: var(--layout-top-nav-height);
+    bottom: 0;
+    left: 0;
+    min-height: 100vh !important;
+    z-index: 100;
+    padding: 10px 0 0;
+    overflow-x: hidden;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    background-color: rgba(4, 255, 25, 0.1);
+}
+
+.sidebar .navitem{
+    height:var(--layout-sidebar-item-height);
+    width: var(--layout-sidebar-width); /* width must be same size as NavBar to center */
+    text-align: center; /* Aligns <a> inside of NavIcon div */
+    
+    line-height:var(--layout-sidebar-item-height);   
+}
+
+.sidebar .navitem > a {
+    font-size: 18pt;
+    color: white;     
+    vertical-align: middle;
+    text-decoration: none;
+}
+.sidebar .navitem > a:hover {
+    opacity: 0.7;
+}  
+
+.sidebar .navitem.active > a {
+    color: #26a792;
+    text-decoration: none;
+}
+
+/* #sidebar-wrapper{
+    min-height: 100vh !important;
+    width: 100vw;
+    margin-left: -1rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+} */
